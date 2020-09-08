@@ -1,0 +1,63 @@
+h1 {
+  font-weight: normal;
+  font-size: 42px;
+}
+.Page {
+  text-align: center;
+  font-family: "Courier New", monospace;
+  height: 100%;
+  width: 100%;
+  background-color: #ffffe0;
+  position: absolute;
+  margin-top: 8%;
+  padding-top: 2%;
+  padding-bottom: 2%;
+  z-index: 1;
+}
+.passwords {
+  list-style: none;
+  padding: 0;
+  font-size: 32px;
+  margin-bottom: 2em;
+}
+.form {
+  display: grid;
+  grid-template-columns: 34% 15% 15%;
+  justify-items: center;
+  align-items: center;
+  z-index: 106;
+}
+
+.formLabel {
+  grid-column-start: 2;
+  grid-column-end: 2;
+  z-index: 106;
+}
+
+.formField {
+  grid-column-start: 3;
+  grid-column-end: 3;
+  z-index: 106;
+}
+
+.spinner {
+  border: 16px solid #f3f3f3; /* Light grey */
+  border-top: 16px solid #3498db; /* Blue */
+  border-radius: 50%;
+  width: 30px;
+  height: 30px;
+  justify-items: center;
+
+  margin-left: 50%;
+
+  animation: spin 2s linear infinite;
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}

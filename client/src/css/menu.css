@@ -1,0 +1,35 @@
+@font-face {
+  font-family: "Menu";
+  src: url("../fonts/modern.otf");
+}
+
+.Menu {
+  text-align: center;
+  font-family: "Courier New", monospace;
+  width: 100%;
+  z-index: 107;
+  display: inline-block;
+  position: absolute;
+  overflow: hidden;
+}
+
+.button {
+  font-size: 20px;
+  font-family: "Menu", monospace;
+  color: #a7a7a7;
+  border: 2px solid#a7a7a7;
+  padding: 1.2%;
+  justify-content: center;
+  display: inline-block;
+  position: relative;
+  margin-left: 10px;
+  z-index: 150;
+}
+
+.button:hover {
+  background-color: #fdf0f2;
+}
+
+.button:active {
+  background-color: #f4adb4;
+}
