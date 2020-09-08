@@ -10,6 +10,9 @@ function update(req, res) {
         return res.status(400).send({ message: "Missing fields" });
     }
 
+    //TODO improve this query
+    //Should use put instead of post
+    //Should also change to a DELETE FROM participant WHERE event_id = (event_id) AND id IS NOT IN (req.body.participants[id's] //but change that to an array of id's) to check for particpants instead of clearing it - could be super inefficient
     pool.query("UPDATE event SET start_date = ($1), end_date = ($2), name = ($3), description = ($4), start_time = ($5), end_time = ($6), address = ($7), city = ($8), state = ($9), zip = ($10) WHERE id = ($11) RETURNING id",
         [req.body.eventStartDate, req.body.eventEndDate, req.body.eventName, req.body.description, req.body.eventStartTime, req.body.eventEndTime, req.body.address, req.body.city, req.body.state, req.body.zip, req.body.id],
         function (err, result) {
@@ -18,9 +21,6 @@ function update(req, res) {
                 return res.status(400).send({ message: "Failed to create" });
             }
             else {
-                //TODO improve this query
-                //will be very inefficient should do something along the lines of check and upadte existing, and check table for other's and if they are there, delete them
-                console.log("Deleting participants")
                 pool.query("DELETE FROM participant WHERE event_id = ($1) ",
                     [req.body.id],
                     function (err, result) {
